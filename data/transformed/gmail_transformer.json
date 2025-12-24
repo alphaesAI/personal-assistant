@@ -1,0 +1,370 @@
+[
+  [
+    "19b40c076ee139d3_chunk_0",
+    "\ud83e\udde0 High-Level ETL + RAG Architecture (Sabi)\r\nExtract (Data Sources)\r\nData is collected from multiple sources using connectors:\r\nPostgreSQL \u2192 structured data (daily plans, schedules)\r\nGmail \u2192 emails, attachments (PDFs, text)\r\nOCR / Textractor \u2192 text from images or documents\r\n(Optional later: web, files, notes)\r\nEach source has:\r\nsource_id\r\nraw content\r\nmetadata\r\nTransform (Processing & Chunking)\r\nBefore indexing, data is normalized:\r\nClean text\r\nSplit into chunks\r\nEach chunk gets:\r\nsource_id\r\nchunk_id\r\nchunk_text\r\nmetadata\r\nThis step ensures consistent, searchable units.",
+    [
+      "gmail",
+      "subject:etl architecture",
+      "from:Logidhasan <logidhasan25@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:CATEGORY_PERSONAL",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b40c076ee139d3_chunk_1",
+    "Embedding (txtai \u2013 vector only)\r\ntxtai is used only for embeddings, not orchestration.",
+    [
+      "gmail",
+      "subject:etl architecture",
+      "from:Logidhasan <logidhasan25@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:CATEGORY_PERSONAL",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b40c076ee139d3_chunk_2",
+    "txtai.Embeddings.embed(text)\r\nConverts chunk_text \u2192 vector\r\nNo indexing done by txtai\r\n\u2714\ufe0f Keeps txtai lightweight\r\n\u2714\ufe0f Full control over indexing\r\nLoad (Elasticsearch \u2013 hybrid index)\r\n\r\nEach chunk is stored in Elasticsearch with:\r\nsource_id\r\nchunk_id\r\ntext\r\nmetadata\r\nvector\r\nThis enables:\r\nKeyword search\r\nVector (semantic) search\r\nHybrid retrieval\r\nIndex example:\r\nhealthai_vectors\r\n\r\n\ud83e\udde9 Key Design Principles (Mentor-safe)\r\nNo overengineering\r\nClear separation of concerns\r\ntxtai \u2260 orchestrator\r\nPipeline \u2260 chatbot\r\nProduction-ready flow\r\n\ud83e\udde0 One-Line Summary (for meeting)\r\n\u201cWe built a modular ETL pipeline that converts raw personal and operational\r\ndata into\r\nembeddings, indexes them in Elasticsearch, and powers a real-time\r\nconversational AI through\r\nretrieval-augmented generation.\u201d",
+    [
+      "gmail",
+      "subject:etl architecture",
+      "from:Logidhasan <logidhasan25@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:CATEGORY_PERSONAL",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b408b9dd0dae00_chunk_0",
+    "The pipeline architecture is explained in this pdf document.",
+    [
+      "gmail",
+      "subject:pipeline architecture",
+      "from:Logidhasan <logidhasan25@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:CATEGORY_PERSONAL",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_0",
+    "Hello,\r\n\r\nThere are two more days left to try GPT-5.2 for free in Windsurf (paid and trial users eligible only).",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_1",
+    "The promotion will end on Thursday, December 18, at midnight PT.",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_2",
+    "According to our CEO, Jeff Wang: *\"**GPT-5.2 represents the biggest leap for GPT models in agentic coding since GPT-5 and is a SOTA coding model in its price range.",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_3",
+    "The version bump undersells the jump in intelligence.",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_4",
+    "We're excited to make it the default across Windsurf and several core Devin workloads.",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_5",
+    "\"*\r\n\r\n\r\nAfter this period, GPT-5.2 will be priced slightly higher compared to GPT-5.1 and GPT-5 to reflect the increased API costs and model behavior.",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_6",
+    "Fast versions of GPT-5.2 will be twice as expensive compared to their regular counterparts.",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_7",
+    "Best,\u00a0\r\n\r\nThe Windsurf Team\r\n\r\n\r\n900 Villa St, 94041, Mountain View\r\n\r\nThis email was sent to\u00a0alphaesaigenaitest@gmail.com\r\n\r\nYou've received it because you've subscribed to our newsletter.",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19b3153cbc7b53f3_chunk_8",
+    "[View in browser](https://edd2q.r.a.d.sendibm1.com/mk/mr/sh/WCPxRrNLV1LtubyNBEPIEjaAUB7E6Kt6/Oa15qiDiIHps) | [Unsubscribe](https://edd2q.r.a.d.sendibm1.com/mk/un/v2/sh/WCPxRrWByckThIZcM2Ddee4XVmP8SMrA/OjpNktbHregf)",
+    [
+      "gmail",
+      "subject:Two days left to try GPT-5.2 for free in Windsurf",
+      "from:Windsurf Team <updates@windsurf.ai>",
+      "label:CATEGORY_PROMOTIONS",
+      "label:UNREAD",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a885d87e921ba0_chunk_0",
+    "here is an sample pdf file to test the email connector.",
+    [
+      "gmail",
+      "subject:pdf attachement testing",
+      "from:alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:SENT",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a885887a8585b5_chunk_0",
+    "here is an sample txt document to test the attachment pasring in email\r\nconnector.",
+    [
+      "gmail",
+      "subject:txt attachement testing",
+      "from:alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:SENT",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a8815aeb01611f_chunk_0",
+    "[image: Google]\r\nYou allowed EmailExtractor access to some of your Google Account data\r\n\r\n\r\nalphaesaigenaitest@gmail.com\r\n\r\nIf you didn't allow EmailExtractor access to some of your Google Account\r\ndata, someone else may be trying to access your Google Account data.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a8815aeb01611f_chunk_1",
+    "Take a moment now to check your account activity and secure your account.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a8815aeb01611f_chunk_2",
+    "Check activity\r\n\r\nTo make changes at any time to the access that EmailExtractor has to your\r\ndata, go to your Google Account\r\n\r\nYou can also see security activity at\r\nhttps://myaccount.google.com/notifications\r\nYou received this email to let you know about important changes to your\r\nGoogle Account and services.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a8815aeb01611f_chunk_3",
+    "\u00a9 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c93f7fe23c9_chunk_0",
+    "[image: Google]\r\nApp password created to sign in to your account\r\n\r\n\r\nalphaesaigenaitest@gmail.com\r\nIf you didn't generate this password for etl pipeline, someone else might\r\nbe using your account.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c93f7fe23c9_chunk_1",
+    "Check and secure your account now.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c93f7fe23c9_chunk_2",
+    "Check activity\r\n\r\nYou can also see security activity at\r\nhttps://myaccount.google.com/notifications\r\nYou received this email to let you know about important changes to your\r\nGoogle Account and services.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c93f7fe23c9_chunk_3",
+    "\u00a9 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c6b16a3de9f_chunk_0",
+    "[image: Google]\r\nPhone number added for 2-Step Verification\r\n\r\n\r\nalphaesaigenaitest@gmail.com\r\nCodes to sign in to your account now go to a new phone number.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c6b16a3de9f_chunk_1",
+    "If you\r\ndidn't add this number, someone else might be using your account.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c6b16a3de9f_chunk_2",
+    "Check and\r\nsecure your account now.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c6b16a3de9f_chunk_3",
+    "Check activity\r\n\r\nYou can also see security activity at\r\nhttps://myaccount.google.com/notifications\r\nYou received this email to let you know about important changes to your\r\nGoogle Account and services.",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a84c6b16a3de9f_chunk_4",
+    "\u00a9 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA",
+    [
+      "gmail",
+      "subject:Security alert",
+      "from:Google <no-reply@accounts.google.com>",
+      "label:UNREAD",
+      "label:CATEGORY_UPDATES",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a885d87e921ba0_chunk_0",
+    "here is an sample pdf file to test the email connector.",
+    [
+      "gmail",
+      "subject:pdf attachement testing",
+      "from:alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:SENT",
+      "label:INBOX"
+    ]
+  ],
+  [
+    "19a885887a8585b5_chunk_0",
+    "here is an sample txt document to test the attachment pasring in email\r\nconnector.",
+    [
+      "gmail",
+      "subject:txt attachement testing",
+      "from:alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "label:UNREAD",
+      "label:IMPORTANT",
+      "label:SENT",
+      "label:INBOX"
+    ]
+  ]
+]

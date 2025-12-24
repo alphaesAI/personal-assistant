@@ -1,0 +1,29 @@
+connectors:
+
+  # Gmail API connector
+  gmail:
+    type: gmail
+    credentials_path: "credentials.json"
+    token_path: "token.json"
+    error_message: "Gmail credentials or token file missing"
+
+  # Elasticsearch connector
+  elasticsearch:
+    type: elasticsearch
+    connection:
+      hosts:
+        - "http://localhost:9200"
+      connection_params:
+        request_timeout: 30
+    error_message: "Elasticsearch connection failed"
+
+  # Postgres connector
+  postgres:
+    type: postgres
+    connection:
+      host: "localhost"
+      port: 5432
+      database: "structured_data_pipeline"
+      user: "logi"
+      password: "logi"
+    error_message: "PostgreSQL connection failed"

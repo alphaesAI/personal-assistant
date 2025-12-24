@@ -1,0 +1,213 @@
+[
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19b40c076ee139d3",
+    "metadata": {
+      "from": "Logidhasan <logidhasan25@gmail.com>",
+      "date": "Sun, 21 Dec 2025 17:21:41 +0530",
+      "subject": "etl architecture",
+      "to": "\"alphaesaigenaitest@gmail.com\" <alphaesaigenaitest@gmail.com>",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_PERSONAL",
+        "INBOX"
+      ]
+    },
+    "body": "\ud83e\udde0 High-Level ETL + RAG Architecture (Sabi)\r\nExtract (Data Sources)\r\nData is collected from multiple sources using connectors:\r\nPostgreSQL \u2192 structured data (daily plans, schedules)\r\nGmail \u2192 emails, attachments (PDFs, text)\r\nOCR / Textractor \u2192 text from images or documents\r\n(Optional later: web, files, notes)\r\nEach source has:\r\nsource_id\r\nraw content\r\nmetadata\r\nTransform (Processing & Chunking)\r\nBefore indexing, data is normalized:\r\nClean text\r\nSplit into chunks\r\nEach chunk gets:\r\nsource_id\r\nchunk_id\r\nchunk_text\r\nmetadata\r\nThis step ensures consistent, searchable units.\r\nEmbedding (txtai \u2013 vector only)\r\ntxtai is used only for embeddings, not orchestration.\r\ntxtai.Embeddings.embed(text)\r\nConverts chunk_text \u2192 vector\r\nNo indexing done by txtai\r\n\u2714\ufe0f Keeps txtai lightweight\r\n\u2714\ufe0f Full control over indexing\r\nLoad (Elasticsearch \u2013 hybrid index)\r\n\r\nEach chunk is stored in Elasticsearch with:\r\nsource_id\r\nchunk_id\r\ntext\r\nmetadata\r\nvector\r\nThis enables:\r\nKeyword search\r\nVector (semantic) search\r\nHybrid retrieval\r\nIndex example:\r\nhealthai_vectors\r\n\r\n\ud83e\udde9 Key Design Principles (Mentor-safe)\r\nNo overengineering\r\nClear separation of concerns\r\ntxtai \u2260 orchestrator\r\nPipeline \u2260 chatbot\r\nProduction-ready flow\r\n\ud83e\udde0 One-Line Summary (for meeting)\r\n\u201cWe built a modular ETL pipeline that converts raw personal and operational\r\ndata into\r\nembeddings, indexes them in Elasticsearch, and powers a real-time\r\nconversational AI through\r\nretrieval-augmented generation.\u201d\r\n"
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19b408b9dd0dae00",
+    "metadata": {
+      "from": "Logidhasan <logidhasan25@gmail.com>",
+      "date": "Sun, 21 Dec 2025 16:23:56 +0530",
+      "subject": "pipeline architecture",
+      "to": "\"alphaesaigenaitest@gmail.com\" <alphaesaigenaitest@gmail.com>",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "CATEGORY_PERSONAL",
+        "INBOX"
+      ]
+    },
+    "body": "The pipeline architecture is explained in this pdf document.\r\n",
+    "attachments": [
+      {
+        "filename": "SABI - vaayaadi.pdf",
+        "path": "data/attachments/19b408b9dd0dae00/SABI - vaayaadi.pdf",
+        "mime_type": "application/pdf"
+      }
+    ]
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19b3153cbc7b53f3",
+    "metadata": {
+      "to": "<alphaesaigenaitest@gmail.com>",
+      "subject": "Two days left to try GPT-5.2 for free in Windsurf",
+      "date": "Thu, 18 Dec 2025 05:55:07 +0000",
+      "from": "Windsurf Team <updates@windsurf.ai>",
+      "labels": [
+        "CATEGORY_PROMOTIONS",
+        "UNREAD",
+        "INBOX"
+      ]
+    },
+    "body": "Hello,\r\n\r\nThere are two more days left to try GPT-5.2 for free in Windsurf (paid and trial users eligible only). The promotion will end on Thursday, December 18, at midnight PT.\r\n\r\n\r\nAccording to our CEO, Jeff Wang: *\"**GPT-5.2 represents the biggest leap for GPT models in agentic coding since GPT-5 and is a SOTA coding model in its price range. The version bump undersells the jump in intelligence. We're excited to make it the default across Windsurf and several core Devin workloads.\"*\r\n\r\n\r\nAfter this period, GPT-5.2 will be priced slightly higher compared to GPT-5.1 and GPT-5 to reflect the increased API costs and model behavior.\u00a0Fast versions of GPT-5.2 will be twice as expensive compared to their regular counterparts.\r\n\r\n\r\nBest,\u00a0\r\n\r\nThe Windsurf Team\r\n\r\n\r\n900 Villa St, 94041, Mountain View\r\n\r\nThis email was sent to\u00a0alphaesaigenaitest@gmail.com\r\n\r\nYou've received it because you've subscribed to our newsletter.\r\n\r\n[View in browser](https://edd2q.r.a.d.sendibm1.com/mk/mr/sh/WCPxRrNLV1LtubyNBEPIEjaAUB7E6Kt6/Oa15qiDiIHps) | [Unsubscribe](https://edd2q.r.a.d.sendibm1.com/mk/un/v2/sh/WCPxRrWByckThIZcM2Ddee4XVmP8SMrA/OjpNktbHregf)\r\n\r\n"
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19a885d87e921ba0",
+    "metadata": {
+      "date": "Sat, 15 Nov 2025 22:03:40 +0530",
+      "subject": "pdf attachement testing",
+      "from": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "to": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ]
+    },
+    "body": "here is an sample pdf file to test the email connector.\r\n",
+    "attachments": [
+      {
+        "filename": "attachment.pdf",
+        "path": "data/attachments/19a885d87e921ba0/attachment.pdf",
+        "mime_type": "application/pdf"
+      }
+    ]
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19a885887a8585b5",
+    "metadata": {
+      "date": "Sat, 15 Nov 2025 21:58:13 +0530",
+      "subject": "txt attachement testing",
+      "from": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "to": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ]
+    },
+    "body": "here is an sample txt document to test the attachment pasring in email\r\nconnector.\r\n",
+    "attachments": [
+      {
+        "filename": "attachment.txt",
+        "path": "data/attachments/19a885887a8585b5/attachment.txt",
+        "mime_type": "text/plain"
+      }
+    ]
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19a8815aeb01611f",
+    "metadata": {
+      "date": "Sat, 15 Nov 2025 15:15:12 GMT",
+      "subject": "Security alert",
+      "from": "Google <no-reply@accounts.google.com>",
+      "to": "alphaesaigenaitest@gmail.com",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    "body": "[image: Google]\r\nYou allowed EmailExtractor access to some of your Google Account data\r\n\r\n\r\nalphaesaigenaitest@gmail.com\r\n\r\nIf you didn't allow EmailExtractor access to some of your Google Account\r\ndata, someone else may be trying to access your Google Account data.\r\n\r\nTake a moment now to check your account activity and secure your account.\r\nCheck activity\r\n<https://accounts.google.com/AccountChooser?Email=alphaesaigenaitest@gmail.com&continue=https://myaccount.google.com/alert/nt/1763219712000?rfn%3D127%26rfnc%3D1%26eid%3D4180619742945492267%26et%3D0>\r\nTo make changes at any time to the access that EmailExtractor has to your\r\ndata, go to your Google Account\r\n<https://accounts.google.com/AccountChooser?Email=alphaesaigenaitest@gmail.com&continue=https://myaccount.google.com/connections/overview/AYsDVzUwd6loNfc2asrs3cx26-ejzh01QHCd0_oSd7YHQw67JpWVTCvE76_zkq6wpZT6Q3Jay-yWTRqIrSu-Va74B6k?utm_source%3Dsec_alert%26utm_medium%3Demail_notification%26force_all%3Dtrue>\r\nYou can also see security activity at\r\nhttps://myaccount.google.com/notifications\r\nYou received this email to let you know about important changes to your\r\nGoogle Account and services.\r\n\u00a9 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\r\n"
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19a84c93f7fe23c9",
+    "metadata": {
+      "date": "Fri, 14 Nov 2025 23:52:51 GMT",
+      "subject": "Security alert",
+      "from": "Google <no-reply@accounts.google.com>",
+      "to": "alphaesaigenaitest@gmail.com",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    "body": "[image: Google]\r\nApp password created to sign in to your account\r\n\r\n\r\nalphaesaigenaitest@gmail.com\r\nIf you didn't generate this password for etl pipeline, someone else might\r\nbe using your account. Check and secure your account now.\r\nCheck activity\r\n<https://accounts.google.com/AccountChooser?Email=alphaesaigenaitest@gmail.com&continue=https://myaccount.google.com/alert/nt/1763164371895?rfn%3D20%26rfnc%3D1%26eid%3D-4461135445747045882%26et%3D0>\r\nYou can also see security activity at\r\nhttps://myaccount.google.com/notifications\r\nYou received this email to let you know about important changes to your\r\nGoogle Account and services.\r\n\u00a9 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\r\n"
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19a84c6b16a3de9f",
+    "metadata": {
+      "date": "Fri, 14 Nov 2025 23:50:04 GMT",
+      "subject": "Security alert",
+      "from": "Google <no-reply@accounts.google.com>",
+      "to": "alphaesaigenaitest@gmail.com",
+      "labels": [
+        "UNREAD",
+        "CATEGORY_UPDATES",
+        "INBOX"
+      ]
+    },
+    "body": "[image: Google]\r\nPhone number added for 2-Step Verification\r\n\r\n\r\nalphaesaigenaitest@gmail.com\r\nCodes to sign in to your account now go to a new phone number. If you\r\ndidn't add this number, someone else might be using your account. Check and\r\nsecure your account now.\r\nCheck activity\r\n<https://accounts.google.com/AccountChooser?Email=alphaesaigenaitest@gmail.com&continue=https://myaccount.google.com/alert/nt/1763164204523?rfn%3D249%26rfnc%3D1%26eid%3D-4649464590926983377%26et%3D0>\r\nYou can also see security activity at\r\nhttps://myaccount.google.com/notifications\r\nYou received this email to let you know about important changes to your\r\nGoogle Account and services.\r\n\u00a9 2025 Google LLC, 1600 Amphitheatre Parkway, Mountain View, CA 94043, USA\r\n"
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19a885d87e921ba0",
+    "metadata": {
+      "date": "Sat, 15 Nov 2025 22:03:40 +0530",
+      "subject": "pdf attachement testing",
+      "from": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "to": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ]
+    },
+    "body": "here is an sample pdf file to test the email connector.\r\n",
+    "attachments": [
+      {
+        "filename": "attachment.pdf",
+        "path": "data/attachments/19a885d87e921ba0/attachment.pdf",
+        "mime_type": "application/pdf"
+      }
+    ]
+  },
+  {
+    "source": "gmail",
+    "type": "document",
+    "id": "19a885887a8585b5",
+    "metadata": {
+      "date": "Sat, 15 Nov 2025 21:58:13 +0530",
+      "subject": "txt attachement testing",
+      "from": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "to": "alphaesai Genaitest <alphaesaigenaitest@gmail.com>",
+      "labels": [
+        "UNREAD",
+        "IMPORTANT",
+        "SENT",
+        "INBOX"
+      ]
+    },
+    "body": "here is an sample txt document to test the attachment pasring in email\r\nconnector.\r\n",
+    "attachments": [
+      {
+        "filename": "attachment.txt",
+        "path": "data/attachments/19a885887a8585b5/attachment.txt",
+        "mime_type": "text/plain"
+      }
+    ]
+  }
+]

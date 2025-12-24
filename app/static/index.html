@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sabi Chat</title>
+    <link rel="stylesheet" href="/static/css/style.css">
+</head>
+<body>
+    <div class="chat-container">
+        <div class="chat-header">
+            <h1>Sabi</h1>
+            <div class="status" id="connection-status">Connecting...</div>
+        </div>
+        <div class="chat-messages" id="chat-messages">
+            <div class="message system">
+                <div class="message-content">Connected to Sabi. Start chatting!</div>
+            </div>
+        </div>
+        <div class="chat-input">
+            <textarea id="message-input" placeholder="Type your message..." rows="1"></textarea>
+            <button id="send-button" disabled>Send</button>
+        </div>
+    </div>
+    <script src="/static/js/chat.js"></script>
+</body>
+</html>

@@ -1,0 +1,24 @@
+# Loader Configuration
+# Controls embedding generation and backend ingestion
+
+# Embeddings configuration (follows txtai's Embeddings format)
+embeddings:
+  enabled: true
+  path: "sentence-transformers/all-MiniLM-L6-v2"
+  content: false  # Disable content storage - vectors only
+  scoring: null   # Disable scoring
+  backend: "numpy"  # Use numpy backend for simple vector generation
+  
+# Backend configuration
+backend:
+  type: "elasticsearch"
+  connector_name: "elasticsearch"  # References connector from pipeline/connectors
+  index_name: "healthai_vectors"
+  bulk_enabled: true
+  batch_size: 100
+  max_retries: 3
+    
+# Logging configuration
+logging:
+  level: "INFO"
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"

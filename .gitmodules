@@ -1,0 +1,3 @@
+[submodule "txtai"]
+	path = txtai
+	url = https://github.com/neuml/txtai.git

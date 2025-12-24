@@ -1,0 +1,68 @@
+# Extraction Configuration
+postgres:
+  extraction:
+    tables:
+      - table_name: "users"
+        schema: "public"
+        connector: "postgres"
+        columns:
+          - "id"
+          - "username"
+          - "email"
+          - "created_at"
+          - "updated_at"
+        extraction_mode: "incremental_date"
+        date_column: "updated_at"
+        batch_size: 1000
+        order_by: "updated_at"
+      
+      - table_name: "orders"
+        schema: "public"
+        connector: "postgres"
+        columns:
+          - "order_id"
+          - "user_id"
+          - "order_date"
+          - "total_amount"
+          - "status"
+        extraction_mode: "incremental_date"
+        date_column: "order_date"
+        batch_size: 1000
+        order_by: "order_date"
+      
+      - table_name: "products"
+        schema: "public"
+        connector: "postgres"
+        columns: null  # null means all columns
+        extraction_mode: "incremental_date"
+        date_column: "updated_at"
+        batch_size: 5000
+        order_by: "updated_at"
+      
+      - table_name: "daily_plans"
+        schema: "public"
+        connector: "postgres"
+        columns: null  # null means all columns
+        extraction_mode: "full"
+        batch_size: 1000
+
+gmail:
+  extraction:
+    connector: "gmail"
+    labels:
+      - "INBOX"
+      - "SENT"
+    extraction_mode: "full"
+    batch_size: 100
+    query: "is:unread"
+    mark_as_read: false
+
+elasticsearch:
+  extraction:
+    connector: "elasticsearch"
+    indices:
+      - "user_events"
+      - "audit_logs"
+    extraction_mode: "incremental_date"
+    date_field: "@timestamp"
+    batch_size: 1000

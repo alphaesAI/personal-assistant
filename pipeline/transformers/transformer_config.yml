@@ -1,0 +1,25 @@
+
+# Transformer Configuration
+# YAML-driven configuration for data transformers
+
+transformers:
+  postgres_transformer:
+    type: tabular
+    source: postgres
+    tabular:
+      idcolumn: null
+      textcolumns: null
+      content: false
+    
+  gmail_transformer:
+    type: textractor
+    source: gmail
+    include_attachments: true
+    attachment_extensions: [.pdf, .txt, .doc, .docx]
+    textractor:
+      paragraphs: true
+      sections: true
+    segmentation:
+      sentences: true
+      minlength: 20
+      maxlength: 512

@@ -29,7 +29,11 @@ class LLMService:
             
             # Read config using existing Application
             import sys
-            sys.path.append('/home/logi/github/logibsc/sabi-vaayaadi/txtai/src/python')
+            # Add txtai submodule path to Python path
+            project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            txtai_path = os.path.join(project_root, 'txtai', 'src', 'python')
+            if txtai_path not in sys.path:
+                sys.path.insert(0, txtai_path)
             from txtai.api.application import Application
             
             config = Application.read(config_path)

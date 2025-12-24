@@ -31,9 +31,17 @@ class RetrieverService:
         try:
             # Import existing connector
             import sys
-            sys.path.append('/home/logi/github/logibsc/sabi-vaayaadi/pipeline/connectors')
-            sys.path.append('/home/logi/github/logibsc/sabi-vaayaadi/pipeline')
-            from connectors.elasticsearch import ElasticsearchConnector
+            # Add pipeline paths relative to project root
+            project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            pipeline_path = os.path.join(project_root, 'pipeline')
+            connectors_path = os.path.join(pipeline_path, 'connectors')
+            
+            if connectors_path not in sys.path:
+                sys.path.insert(0, connectors_path)
+            if pipeline_path not in sys.path:
+                sys.path.insert(0, pipeline_path)
+                
+            from elasticsearch import ElasticsearchConnector
             
             # Load config
             config_path = os.environ.get("CONFIG")
@@ -42,7 +50,11 @@ class RetrieverService:
                 return
             
             import sys
-            sys.path.append('/home/logi/github/logibsc/sabi-vaayaadi/txtai/src/python')
+            # Add txtai submodule path to Python path
+            project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+            txtai_path = os.path.join(project_root, 'txtai', 'src', 'python')
+            if txtai_path not in sys.path:
+                sys.path.insert(0, txtai_path)
             from txtai.api.application import Application
             
             config = Application.read(config_path)
@@ -65,8 +77,11 @@ class RetrieverService:
         if self._embedding_service is None:
             try:
                 # Import EmbeddingAligner from pipeline
-                sys.path.append('/home/logi/github/logibsc/sabi-vaayaadi/pipeline')
-                from pipeline.loaders.embeddings import EmbeddingAligner
+                project_root = os.path.dirname(os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
+                pipeline_path = os.path.join(project_root, 'pipeline')
+                if pipeline_path not in sys.path:
+                    sys.path.insert(0, pipeline_path)
+                from loaders.embeddings import EmbeddingAligner
                 
                 # Get embeddings config
                 embeddings_config = self.config.get("embeddings", {})
